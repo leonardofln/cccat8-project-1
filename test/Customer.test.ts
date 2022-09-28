@@ -15,11 +15,6 @@ test("O cpf undefined deve ser considerado inválido", function () {
     expect(customer.validateDocument(undefined)).toBeFalsy();
 });
 
-test("O cpf null deve ser considerado inválido", function () {
-    const customer = new Customer("João", "Silva");
-    expect(customer.validateDocument(null)).toBeFalsy();
-});
-
 test("O cpf 9999999999 com 10 caracteres deve ser considerado inválido", function () {
     const customer = new Customer("João", "Silva", "9999999999");
     expect(customer.isDocumentValid()).toBeFalsy();

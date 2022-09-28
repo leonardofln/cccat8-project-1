@@ -1,8 +1,7 @@
-// @ts-nocheck
 export default class Customer {
     private firstName: string;
     private lastName: string;
-    private document: string;
+    private document?: string;
 
     constructor(firstName: string, lastName: string, document?: string) {
         this.firstName = firstName;
@@ -10,15 +9,15 @@ export default class Customer {
         this.document = document;
     }
 
-    returnsOnlyNumbers(str) {
+    returnsOnlyNumbers(str: string) {
         return str.replace(/\D/g, '');
     }
 
-    isAllEquals(input) {
+    isAllEquals(input: string) {
         return input.split('').every(char => char === input[0]);
     }
 
-    validateDocument(cpf) {
+    validateDocument(cpf?: string) {
         if (!cpf) return false;
         if (cpf.length < 11 || cpf.length > 14) return false;
         cpf = this.returnsOnlyNumbers(cpf);
